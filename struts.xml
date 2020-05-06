@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+
+    <!-- devMode equals debug information and reload everything for every request -->
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.ui.theme" value="simple" />
+
+    <package name="ucbusca" extends="struts-default">
+        <!--
+        <interceptors>
+            <interceptor name="sessionInterceptor" class="webServer.Interceptor.LoginInterceptor"/>
+            <interceptor-stack name="sessionStack">
+                <interceptor-ref name="sessionInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="sessionStack"/>
+        -->
+        <default-action-ref name="index" />
+        <!-- 'index' action leads to the view provided by index.jsp -->
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+        </global-results>
+
+        <!-- all exceptions not caught by the application will lead to error.jsp -->
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
+
+
+        <!-- actions da sequencia de ecras -->
+        <action name="index">
+            <result>/index.jsp</result>
+        </action>
+        <action name="loginPage">
+            <result>loginPage.jsp</result>
+        </action>
+
+        <action name="registerPage">
+            <result>registerPage.jsp</result>
+        </action>
+
+        <action name="backIndex">
+            <result>index.jsp</result>
+        </action>
+
+        <action name="backWelcome">
+            <result>welcome.jsp</result>
+        </action>
+
+        <action name="searchPage">
+            <result>searchPage.jsp</result>
+        </action>
+
+        <action name="searchUserPage">
+            <result>searchUserPage.jsp</result>
+        </action>
+
+        <action name="giveAdminPage">
+            <result>giveAdminPage.jsp</result>
+        </action>
+
+        <action name="historyPage">
+            <result>historyPage.jsp</result>
+        </action>
+
+        <action name="addLinkPage">
+            <result>addLinkPage.jsp</result>
+        </action>
+
+        <action name="linksPage">
+            <result>listLinksPage.jsp</result>
+        </action>
+
+        <action name="welcome">
+            <result>welcome.jsp</result>
+        </action>
+
+        <action name="loginFacebook" class="webServer.Action.UserAction" method="loginFacebook">
+            <result name="success">welcome.jsp</result>
+            <result name="error">facebookError.jsp</result>
+        </action>
+
+        <!-- actions resultados de operacoes -->
+        <action name="registo" class="webServer.Action.UserAction" method="registar">
+            <result name="success">/loginPage.jsp</result>
+            <result name="error">/registerPage.jsp</result>
+        </action>
+
+        <action name="login" class="webServer.Action.UserAction" method="login">
+            <result name="success">welcome.jsp</result>
+            <result name="error">/loginPage.jsp</result>
+        </action>
+
+        <action name="logout" class="webServer.Action.UserAction" method="logout">
+            <result name="success">index.jsp</result>
+        </action>
+
+        <action name="backWelcomePage" class="webServer.Action.SearchUserAction" method="backWelcomePage">
+            <result name="success">welcome.jsp</result>
+        </action>
+
+        <action name="search" class="webServer.Action.SearchAction" method="search">
+            <result name="success">searchPage.jsp</result>
+        </action>
+
+        <action name="searchUser" class="webServer.Action.SearchUserAction" method="searchUser">
+            <result name="success">searchUserPage.jsp</result>
+        </action>
+
+        <action name="giveAdmin" class="webServer.Action.AdminAction" method="giveAdmin">
+            <result name="success">welcome.jsp</result>
+            <result name="error">giveAdminPage.jsp</result>
+        </action>
+
+        <action name="historyUser" class="webServer.Action.HistoryAction" method="historyUser">
+            <result name="success">historyPage.jsp</result>
+        </action>
+
+        <action name="addLink" class="webServer.Action.AddLinkAction" method="addLink">
+            <result name="success">welcome.jsp</result>
+            <result name="error">addLinkPage.jsp</result>
+        </action>
+
+        <action name="listLinks" class="webServer.Action.LinksPageAction" method="listLinks">
+            <result name="success">listLinksPage.jsp</result>
+        </action>
+
+    </package>
+
+</struts>

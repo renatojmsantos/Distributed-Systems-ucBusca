@@ -1,0 +1,72 @@
+
+type | dados[0] ; ******* | dados[1] ; ******* | dados[2]
+
+
+REGISTO
+type | regist ; username | ******  ;  password | ******
+type | status ; msg | Utilizador registado. Inicie sessao
+type|status; logged|failed; msg|Username ja utilizado
+
+LOGIN
+type | login ; username | ****** ; password | ******
+type | status ; msg | User ja fez login
+type | status ; msg | Login com sucesso
+type | status ; msg | Login com sucesso ; notificacao | Tornou se administrador
+type | status ; msg | Utilizador necessita de criar utilizador
+type | status ; msg | Password errada
+
+ADMINISTRADOR
+type | give_admin ; username1 | ****** ; username2 | *******
+type | status ; msg | O user2 já e administrador
+type | status ; msg | O user2 é agora administrador
+type | status ; msg | Nao tem permissao
+
+ADDURL
+type | add_url ; url | ****** ; username | *****
+type | status ; msg | Url ja presente
+type | status ; msg | Url adicionado com sucesso
+type | status ; msg | Nao tem permissao
+
+
+LOGOUT
+type | logout ; username | ******
+type | status ; msg | logout com sucesso
+type | status ; msg | nao tinha sessao iniciada
+
+
+VER LIGACOES DE PAGINAS PARA UMA
+type | list_links ; url | ****** ; username | ******
+type | url_list ; item_count | 2; item_0_name | www.uc.pt ; item_1_name | www.dei.uc.pt
+type | status ; msg | lista de links impressa
+type | status ; msg | nao tem sessao iniciada
+
+
+SEARCH
+type | search ; search_term | ******
+type | search ; search_term | ****** ; username | ********
+type | status ; msg | pesquisa realizada
+type | status ; msg | nao tem sessao iniciada
+type | search_result ; item_0_title | Universidade de Coimbra ;  item_0_url | uc.pt ; item_0_text | Desde 1290 a servir os estudantes ;
+                       item_1_title | Académica de Coimbra;  item_1_url | academica.pt ; item_1_text | A mais antiga do pais ;
+                       item_count | 2;
+
+HISTORY
+type | history ; username | ********
+type | status ; msg | historico enviado
+type | status ; msg | ainda nao pesquisou
+type | status ; msg | nao tem sessao iniciada
+
+
+STATS ADMIN
+type | stats_admin ; username | ******
+type | status ; msg | sent... top 10 pages , top 10 searchs, list active multicast servers
+type | status ; msg | nao tem permissao. tem de ser admin
+type | status ; msg | nao tem sessao iniciada
+
+
+----------------
+VER URLS ( acho q nao é preciso ... )
+type | see_urls ; username | ******
+type | url_list ; item_count | 2; item_0_name | www.uc.pt ; item_1_name | www.dei.uc.pt
+type | status ; msg | nao tem sessao iniciada ...
+
