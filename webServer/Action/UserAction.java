@@ -107,7 +107,7 @@ public class UserAction extends BeanAction{
     public String loginFacebook() throws IOException {
         OAuthService service = new ServiceBuilder()
                 .provider(FacebookApi2.class)
-                .apiKey("852831725181876")
+                .apiKey("APIkey")
                 .apiSecret("APIsecret")
                 .callback("http://localhost:8080/ucBusca/loginFacebook")
                 .scope("public_profile")
