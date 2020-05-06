@@ -108,7 +108,7 @@ public class UserAction extends BeanAction{
         OAuthService service = new ServiceBuilder()
                 .provider(FacebookApi2.class)
                 .apiKey("852831725181876")
-                .apiSecret("1efbf81075593bfc46aa48a1103a3912")
+                .apiSecret("APIsecret")
                 .callback("http://localhost:8080/ucBusca/loginFacebook")
                 .scope("public_profile")
                 .build();
@@ -137,7 +137,7 @@ public class UserAction extends BeanAction{
                 JSONObject jsonObject = (JSONObject) jsonParser.parse(response.getBody());
                 this.username = (String) jsonObject.get("username");
                 System.out.println("Name from json:" + this.username);
-                this.password = "h89y7y7y7y89yh89huiebuifbwuh89h983h890";
+                this.password = "234357482yyyh8hf2hf982h389";
                 //login, registo...
                 return SUCCESS;
             } catch (ParseException e) {
